@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.message {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  margin: 0.5rem 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.success {
+  background-color: green;
+  color: white;
+  opacity: 1;
+}
+
+.warning {
+  background-color: yellow;
+  color: red;
+  opacity: 1;
+}
