@@ -1,4 +1,5 @@
 import React, { createRef, useState } from 'react';
+import CustomBtn from '../components/CustomBtn';
 import Message from '../components/Message';
 
 export default function Todo() {
@@ -47,7 +48,8 @@ export default function Todo() {
           autoComplete='off'
           // onBlur={() => setMsg('')}
         />
-        <input type='submit' value='Submit' />
+        {/* <input type='submit' value='Submit' /> */}
+        <CustomBtn type='submit'>Add</CustomBtn>
       </form>
 
       <Message msg={msg} />
