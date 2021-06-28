@@ -1,18 +1,25 @@
-import Header from './components/Header';
-import Contact from './components/Contact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Placeholder from './components/Placeholder';
+import Calculator from './pages/Calculator';
+import Contact from './pages/Contact';
 import Todo from './pages/Todo';
-import LockScreen from './pages/LockScreen';
 
 function App() {
   return (
     <Router>
-      <LockScreen />
+      {/* <LockScreen /> */}
       <Header />
+      <Placeholder />
+
       <Switch>
         <Route path='/contact' component={Contact} />
         <Route path='/todo' component={Todo} />
+        <Route path='/calculator' component={Calculator} />
       </Switch>
+
+      <Footer />
     </Router>
   );
 }

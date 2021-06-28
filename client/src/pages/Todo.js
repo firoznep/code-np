@@ -1,22 +1,21 @@
-import React, { createRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import Container from '../components/Container';
 import CustomBtn from '../components/CustomBtn';
 import Message from '../components/Message';
 
 export default function Todo() {
   const [todoItem, setTodoItem] = useState('');
-  const [msg, setMsg] = useState(null);
   const [data, setData] = useState([]);
+  const [show, setShow] = useState(false);
 
-  const inputField = createRef();
+  const inputField = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!todoItem.trim()) {
-      setMsg('Field is Empty...');
+      setShow(true);
     } else {
       setData((pre) => [...pre, todoItem]);
-
       setTodoItem('');
     }
     inputField.current.focus();
@@ -29,33 +28,34 @@ export default function Todo() {
   const onChangeHandler = (e) => {
     let v = e.target.value;
     setTodoItem(v);
-    if (v.length > 0) {
-      setMsg('');
+    if (v.length) {
+      setShow(false);
     }
   };
 
   return (
-    <div>
-      <h1>Todo</h1>
+    <Container>
+      <h1>Todo App</h1>
 
       <form onSubmit={handleSubmit}>
-        <input
-          value={todoItem}
-          type='text'
-          name='todoitem'
-          onChange={(e) => onChangeHandler(e)}
-          ref={inputField}
-          autoComplete='off'
-          // onBlur={() => setMsg('')}
-        />
-        {/* <input type='submit' value='Submit' /> */}
+        <div>
+          <input
+            value={todoItem}
+            type='text'
+            name='todoitem'
+            onChange={(e) => onChangeHandler(e)}
+            ref={inputField}
+            autoComplete='off'
+          />
+          <Message show={show}> Field is empty!</Message>
+        </div>
+
         <CustomBtn type='submit'>Add</CustomBtn>
       </form>
 
-      <Message msg={msg} />
       <div>
         <ul>{AddTodoItem()}</ul>
       </div>
-    </div>
+    </Container>
   );
 }

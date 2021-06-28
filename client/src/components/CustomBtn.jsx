@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function CustomBtn({ children, ...otherProps }) {
+export default function CustomBtn({ children, className = '', ...otherProps }) {
   return (
-    <button {...otherProps} className='custom-btn'>
+    <button className={`custom-btn ${className}`} {...otherProps}>
       {children}
     </button>
   );

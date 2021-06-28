@@ -7,25 +7,112 @@ body {
   box-sizing: border-box;
 }
 
+/* MESSAGE */
 .message {
-  display: inline-block;
   padding: 0.25rem 1rem;
-  margin: 0.5rem 0;
-  opacity: 0;
-  transition: opacity 0.5s;
+  width: max-content;
 }
 .success {
   background-color: green;
   color: white;
-  opacity: 1;
 }
-
 .warning {
   background-color: yellow;
   color: red;
-  opacity: 1;
 }
 
+.message-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.message-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.message-exit {
+  opacity: 1;
+}
+.message-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+/* HEADER */
+header {
+  background-color: #3a3a3a;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* PLACEHOLDER */
+.placeholder {
+  width: 100%;
+  height: 4.5rem;
+}
+/* COMPONENTS */
+.container {
+  padding: 0.5rem;
+  margin: 0.5rem 2rem;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  flex: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.custom-btn.nav-container--active {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #3a3a3a;
+  padding: 0.5rem;
+  box-shadow: 0 0.5rem 1rem #3a3a3a;
+}
+.dropdown a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.25rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.dropdown a:hover {
+  /* border: 1px solid #fff; */
+  background-color: #afafaf;
+  color: #3a3a3a;
+}
+
+.drop-trans-enter {
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: opacity 0.5s, transform 0.5s ease;
+}
+.drop-trans-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s ease;
+}
+.drop-trans-exit {
+  opacity: 1;
+  transform: translateY(-1rem);
+  transition: opacity 0.5s, transform 0.5s ease;
+}
+.drop-trans-exit-active {
+  opacity: 0;
+}
+
+/* .nav-container:hover .dropdown {
+  display: flex;
+} */
+
+/* SCREENS */
 /* LOCK SCREEN */
 .lock-screen {
   display: fixed;
@@ -50,17 +137,72 @@ body {
 .custom-btn {
   padding: 0.25rem 1rem;
   margin: 0.25rem;
-  border: 0.125rem solid #0808a8;
+  border: 0.125rem solid #3a3a3a;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.1.3rem;
+  font-size: 1.1rem;
   background-color: #fff;
-  color: #0808a8;
+  color: #3a3a3a;
   transition: all 0.2s;
   border-radius: 0.25rem;
 }
 .custom-btn:hover {
   color: #fff;
-  background-color: #0808a8;
-  border-color: #0808a8;
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* CALCULATOR */
+.container-calc {
+  height: 100vh;
+  background-color: #505050;
+  /* margin-top: 1rem; */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.calc_display {
+  width: 20rem;
+  height: 4rem;
+  padding: 1rem 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background-color: #f1f1f1;
+}
+.calc {
+  background-color: #fff;
+  border: 0.25rem solid #afafaf;
+}
+.calc_btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 20rem;
+}
+.calc_btn {
+  text-align: center;
+  flex-grow: 1;
+  background-color: #3a3a3a;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border: 2px solid #afafaf;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.calc_btn:hover {
+  background-color: #fff;
+  color: #3a3a3a;
+}
+.calc_btn-equal {
+  flex-grow: 2;
 }
