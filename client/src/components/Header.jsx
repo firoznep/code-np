@@ -38,8 +38,8 @@ export default function Header() {
               <Link to='/calculator' className='dropItem'>
                 Calculator
               </Link>
-              <Link to='/' className='dropItem'>
-                link 2 sdf
+              <Link to='/simple-calc' className='dropItem'>
+                Simple Calculator
               </Link>
               <Link to='/' className='dropItem'>
                 link 2

@@ -8,10 +8,9 @@ export default function Calculator() {
 
   const handleEnter = () => {
     let n = inputNum.split(spliter);
-
     switch (spliter) {
       case '/':
-        setInputNum((n[0] / n[1]).toFixed(2));
+        setInputNum(Math.abs((n[0] / n[1]).toFixed(2)));
         break;
       case '*':
         setInputNum((n[0] * n[1]).toFixed(2));
@@ -24,14 +23,13 @@ export default function Calculator() {
         break;
 
       default:
-        setInputNum('');
+        console.log(spliter);
     }
   };
 
   const handleClick = (e) => {
     let contx = e.target.textContent;
     setInputNum((pre) => pre + contx);
-
     operators.map((opr) => (opr === contx ? setSpliter(opr) : null));
   };
 
